@@ -1,7 +1,8 @@
 .DEFAULT_GOAL := help
 PKG = sffix
-TESTS_DIR = sffix/tests
-TEST_FILES_DIR = sffix/test_files
+FIX_SCRIPT = ${PKG}/apps/fix.py
+TESTS_DIR = ${PKG}/tests
+TEST_FILES_DIR = ${PKG}/test_files
 
 # NOTE: -e installs in "Development Mode"
 # See: https://packaging.python.org/tutorials/installing-packages/
@@ -30,4 +31,8 @@ clean: ## Remove all python cache and build files
 	rm -rf ${PKG}.egg-info/
 	rm -f ${TEST_FILES_DIR}/*_fixed_*.sf
 
-.PHONY: install uninstall help clean
+test_script: ## Run the fix.py script on test files as a sanity check
+	python ${FIX_SCRIPT} test --indir ${TEST_FILES_DIR}
+	rm -f ${TEST_FILES_DIR}/*_fixed_*.sf
+
+.PHONY: install uninstall help clean test_script

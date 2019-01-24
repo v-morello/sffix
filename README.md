@@ -18,6 +18,8 @@ Clone the repository and then use *either* of two methods:
 1. Type `make install`, which simply runs `pip install` in [editable mode](https://pip.pypa.io/en/latest/reference/pip_install/#editable-installs), i.e. places a soft link to the repository in your `site-packages` folder. This will also install `astropy` using `pip` if it's not present.
 2. Add the root directory of the package to your `PYTHONPATH` environment variable. It's your responsibility to have `astropy` installed in this case.
 
+To test the command line script on the test data provided with the package (a few UWL observation chunks truncated to the first 30KB), type `make test_script` in the base directory and check that there are no errors.
+
 
 ### Running the fix
 

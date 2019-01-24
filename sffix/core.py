@@ -115,4 +115,5 @@ def fix_observation(indir, basename, outdir=None, ext='.sf', output_suffix='_fix
             log.debug("{!r} has NSUBOFFS = {:d}".format(chunk.fname, subint.header['NSUBOFFS']))
             subint.header['NSUBOFFS'] = 0
             log.debug("Set NSUBOFFS = 0 in {!r}".format(outname))
+    
     log.debug("Done fixing observation {!r} in directory {!r}".format(basename, indir))
